@@ -1,3 +1,4 @@
+#if windows
 #if web
 import openfl.net.NetConnection;
 import openfl.net.NetStream;
@@ -138,3 +139,4 @@ class FlxVideo extends FlxBasic {
 	#end
 	#end
 }
+#end
