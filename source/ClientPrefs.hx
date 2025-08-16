@@ -7,6 +7,8 @@ import flixel.graphics.FlxGraphic;
 import Controls;
 
 class ClientPrefs {
+	public static var hitboxmode:String = 'Classic';
+    public static var hitboxalpha:Float = 0.2;
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var beatweek:Bool = false;
@@ -89,6 +91,9 @@ class ClientPrefs {
 		FlxG.save.data.hideTime = hideTime;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
+		FlxG.save.data.hitboxmode = hitboxmode;
+        FlxG.save.data.hitboxalpha = hitboxalpha;
+	
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();
@@ -196,6 +201,12 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideTime != null) {
 			hideTime = FlxG.save.data.hideTime;
+		}
+		if(FlxG.save.data.hitboxmode != null) {
+            hitboxmode = FlxG.save.data.hitboxmode;
+        }
+        if(FlxG.save.data.hitboxalpha != null) {
+            hitboxalpha = FlxG.save.data.hitboxalpha;
 		}
 
 		var save:FlxSave = new FlxSave();
