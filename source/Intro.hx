@@ -48,7 +48,7 @@ class Intro extends MusicBeatState
       FlxG.sound.muteKeys = [];
   		FlxG.sound.volumeDownKeys = [];
   		FlxG.sound.volumeUpKeys = [];
-        var video = new MP4Handler();
+        /*var video = new MP4Handler();
         video.canSkip=false;
 		video.finishCallback = function()
 		{
@@ -65,6 +65,19 @@ class Intro extends MusicBeatState
           }
         });
 		}
-		video.playVideo(Paths.video('HaxeFlixelIntro'));
+		video.playVideo(Paths.video('HaxeFlixelIntro'));*/
+
+	  FlxG.sound.muteKeys = TitleState.muteKeys;
+      FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
+      FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;    
+      FlxTween.tween(div, {alpha: 1}, 3.4, {ease: FlxEase.quadInOut,
+        onComplete: function(twn:FlxTween)
+          {
+            FlxTween.tween(div, {alpha: 0}, 3.4, {ease: FlxEase.quadInOut, 
+              onComplete: function(twn:FlxTween){
+                MusicBeatState.switchState(new TitleState());
+              }});
+          }
+        });
     }
 }
