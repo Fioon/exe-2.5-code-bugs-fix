@@ -71,11 +71,14 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween.FlxTweenManager;
 import flixel.system.scaleModes.StageSizeScaleMode;
 import flixel.system.scaleModes.BaseScaleMode;
+import VideoHandler as MP4Handler;
+import VideoSprite as MP4Sprite;
 using StringTools;
 
 #if desktop
 import Discord.DiscordClient;
 #end
+	
 #if sys
 import sys.FileSystem;
 #end
@@ -6928,7 +6931,7 @@ class PlayState extends MusicBeatState
 			video.destroy();
 		}
 		video.playVideo(Paths.video(name));
-		video.readyCallback = function(){
+		video.openingCallback = function(){
 			video.visible=true;
 		}
 		add(video);
