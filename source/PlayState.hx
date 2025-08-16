@@ -71,8 +71,8 @@ import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
 import flixel.tweens.FlxTween.FlxTweenManager;
 import flixel.system.scaleModes.StageSizeScaleMode;
 import flixel.system.scaleModes.BaseScaleMode;
-import VideoHandler as MP4Handler;
-import VideoSprite as MP4Sprite;
+//import VideoHandler as MP4Handler;
+//import VideoSprite as MP4Sprite;
 using StringTools;
 
 #if desktop
@@ -2956,7 +2956,8 @@ class PlayState extends MusicBeatState
 			bg.cameras = [camHUD];
 			add(bg);
 
-			(new FlxVideo(fileName)).finishCallback = function()
+			remove(bg);
+			/*(new FlxVideo(fileName)).finishCallback = function()
 			{
 				remove(bg);
 				if (endingSong)
@@ -2967,7 +2968,7 @@ class PlayState extends MusicBeatState
 				{
 					startCountdown();
 				}
-			}
+			}*/
 			return;
 		}
 		else
@@ -6920,7 +6921,7 @@ class PlayState extends MusicBeatState
 
 
 	function chromaVideo(name:String){
-		var video = new MP4Sprite(0,0);
+		/*var video = new MP4Sprite(0,0);
 		video.scrollFactor.set();
 		video.cameras = [camHUD];
 		video.shader = new GreenScreenShader();
@@ -6934,7 +6935,8 @@ class PlayState extends MusicBeatState
 		video.openingCallback = function(){
 			video.visible=true;
 		}
-		add(video);
+		add(video);*/
+		return;
 	}
 
 	function majinSaysFuck(numb:Int):Void
